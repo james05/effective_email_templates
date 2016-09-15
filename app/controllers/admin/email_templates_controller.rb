@@ -1,6 +1,6 @@
 module Admin
   class EmailTemplatesController < ApplicationController
-    before_filter :authenticate_user!   # This is devise, ensure we're logged in.
+    
 
     layout (EffectiveEmailTemplates.layout.kind_of?(Hash) ? EffectiveEmailTemplates.layout[:admin_email_templates] : EffectiveEmailTemplates.layout)
 
