@@ -5,8 +5,9 @@ module Admin
     layout (EffectiveEmailTemplates.layout.kind_of?(Hash) ? EffectiveEmailTemplates.layout[:admin_email_templates] : EffectiveEmailTemplates.layout)
 
     def index
-      EffectiveEmailTemplates.authorized?(self, :index, Effective::EmailTemplate)
       raise Effective::EmailTemplate.all.inspect
+      EffectiveEmailTemplates.authorized?(self, :index, Effective::EmailTemplate)
+      
  
       @page_title = 'Manage Email Templates'
       @datatable = Effective::Datatables::EmailTemplates.new() if defined?(EffectiveDatatables)
